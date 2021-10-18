@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/router.dart';
 import 'package:shop_app/src/components/categories.dart';
 import 'package:shop_app/src/components/item_card.dart';
 import 'package:shop_app/src/models/product.dart';
+import 'package:shop_app/src/screen/cart.dart';
 import 'package:shop_app/src/screen/details_screen.dart';
 import 'package:shop_app/src/utils/colors.dart';
 
@@ -17,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         child: SafeArea(
           child: Container(
             height: 80,
-            child: buildAppBar(),
+            child: buildAppBar(context),
           ),
         ),
       ),
@@ -25,7 +27,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget buildAppBar() {
+  Widget buildAppBar(BuildContext context) {
     return Row(
       // mainAxisAlignment:MainAxisAlignment.spaceBetween,
       // backgroundColor: Colors.white,
@@ -61,7 +63,12 @@ class HomeScreen extends StatelessWidget {
                   // by default our icon color is white
                   color: kTextColor,
                 ),
-                onPressed: () {},
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Cart(),
+                  ),
+                ),
               ),
             ],
           ),
