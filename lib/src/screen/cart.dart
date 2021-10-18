@@ -63,11 +63,14 @@ class Cart extends StatelessWidget {
                   crossAxisCount: 1,
                   mainAxisSpacing: kDefaultPaddin,
                   crossAxisSpacing: kDefaultPaddin,
-                  childAspectRatio: 0.90,
+                  childAspectRatio: 3,
                 ),
                 itemBuilder: (context, index) {
-                  return ItemCard2(
-                    product: products[index],
+                  return Container(
+                    height: 120,
+                    child: ItemCard2(
+                      product: products[index],
+                    ),
                   );
                 },
               ),

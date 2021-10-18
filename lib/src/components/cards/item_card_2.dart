@@ -13,61 +13,40 @@ class ItemCard2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-        height: 100,
-        padding: EdgeInsets.only(top: 15, left: 5),
+    return SizedBox(
+      height: 120,
+      child: InkWell(
+        onTap: () {
+          print("product name: ${product!.title}");
+        },
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  height: 80,
-                  width: 80,
-                  child: Container(
-                    
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.asset(
-                        product!.image!,
-                      
-                      ),
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  product!.image!,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    product!.title!,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(left: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        product!.title!,
-                        style: TextStyle(
-                          color: Color(0xff18172b),
-                          fontSize: 18,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        product!.price!.toString(),
-                        style: TextStyle(
-                          color: Color(0xff18172b),
-                          fontSize: 18,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(),
-              ],
+                  Text(product!.price!.toString()),
+                ],
+              ),
             ),
           ],
         ),
