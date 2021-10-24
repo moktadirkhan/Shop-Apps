@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/src/screen/details_screen.dart';
+import 'package:shop_app/src/pages/details_screen.dart';
 
 class CounterwithFavourite extends StatelessWidget {
   const CounterwithFavourite({

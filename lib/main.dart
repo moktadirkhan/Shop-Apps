@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/src/screen/home_screen.dart';
+import 'package:shop_app/src/pages/splash_screen.dart';
 import 'package:shop_app/src/utils/colors.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }

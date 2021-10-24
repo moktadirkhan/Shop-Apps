@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/src/components/item_card.dart';
 import 'package:shop_app/src/components/cards/item_card_2.dart';
 import 'package:shop_app/src/models/product.dart';
-import 'package:shop_app/src/screen/details_screen.dart';
 import 'package:shop_app/src/utils/colors.dart';
 
 class Cart extends StatelessWidget {

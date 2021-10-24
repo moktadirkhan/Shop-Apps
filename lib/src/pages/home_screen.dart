@@ -3,13 +3,30 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/router.dart';
 import 'package:shop_app/src/components/categories.dart';
 import 'package:shop_app/src/components/item_card.dart';
+import 'package:shop_app/src/models/appData.dart';
 import 'package:shop_app/src/models/product.dart';
-import 'package:shop_app/src/screen/cart.dart';
-import 'package:shop_app/src/screen/details_screen.dart';
+import 'package:shop_app/src/pages/cart_page.dart';
+import 'package:shop_app/src/pages/details_screen.dart';
+import 'package:shop_app/src/store/store.dart';
 import 'package:shop_app/src/utils/colors.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late AppData _appData;
+
+  @override
+  void initState() {
+    super.initState();
+    _appData = Store.instance.getAppData();
+    // ignore: avoid_print
+    print(_appData.categories![1].catgoryName);
+  }
 
   @override
   Widget build(BuildContext context) {
