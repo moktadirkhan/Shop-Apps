@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:shop_app/src/general/fade_in_route.dart';
+import 'package:shop_app/src/models/product.dart';
 import 'package:shop_app/src/pages/cart_page.dart';
+import 'package:shop_app/src/pages/details_screen.dart';
 import 'package:shop_app/src/pages/home_screen.dart';
 import 'package:shop_app/src/pages/splash_screen.dart';
 
@@ -26,6 +28,17 @@ final Map<String, RouterMethod> _definitions = {
       settings: settings,
       builder: (context) {
         return const HomeScreen();
+      },
+    );
+  },
+  '/product_details_page': (settings, _) {
+    return MaterialPageRoute(
+      settings: settings,
+      builder: (context) {
+        Product? product = settings.arguments as Product?;
+        return ProductDetails(
+          product: product,
+        );
       },
     );
   },
@@ -116,6 +129,10 @@ Route buildRouter(RouteSettings settings) {
       );
     },
   );
+}
+
+void openProductPage(BuildContext context, Product product) {
+  Navigator.of(context).pushNamed('/product_details_page', arguments: product);
 }
 
 void openCartPage(BuildContext context) {

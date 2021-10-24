@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_app/router.dart';
 import 'package:shop_app/src/components/categories.dart';
 import 'package:shop_app/src/components/item_card.dart';
 import 'package:shop_app/src/models/appData.dart';
@@ -61,7 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
             "assets/icons/back.svg",
             color: kTextColor,
           ),
-          onPressed: () {},
+          onPressed: () {
+            // Navigator.pop(context);
+          },
         ),
         const Spacer(),
         Row(
@@ -134,14 +137,15 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       itemBuilder: (context, index) => ItemCard(
         product: productsList[index],
-        press: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ProductDetails(
-              product: productsList[index],
-            ),
-          ),
-        ),
+        // press: () => Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => ProductDetails(
+        //       product: productsList[index],
+        //     ),
+        //   ),
+        // ),
+        press: () => openProductPage(context, productsList[index]),
       ),
     );
   }
