@@ -5,7 +5,7 @@ import 'package:shop_app/src/models/product.dart';
 class CategoryResponse {
   static List<CategoryModel> getDummyCategory() {
     List<Product> mensProduct = ProductMockData.getDummyProduct();
-    List<Product> womensProduct = ProductMockData.getDummyProduct();
+    List<Product> womensProduct = ProductMockData.getWomensDummyProducts();
     CategoryModel category1 = CategoryModel(
       categoryId: 1,
       catgoryName: "Men",

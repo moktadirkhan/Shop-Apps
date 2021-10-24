@@ -115,11 +115,6 @@ class ProductDetails extends StatelessWidget {
   }
 }
 
-
-
-
-
-
 class ColorDot extends StatelessWidget {
   final Color? color;
   final bool isSelected;
@@ -154,8 +149,6 @@ class ColorDot extends StatelessWidget {
     );
   }
 }
-
-
 
 class CartCounter extends StatefulWidget {
   const CartCounter({Key? key}) : super(key: key);

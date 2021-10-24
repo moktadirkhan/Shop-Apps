@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/router.dart';
 import 'package:shop_app/src/components/categories.dart';
 import 'package:shop_app/src/components/item_card.dart';
 import 'package:shop_app/src/models/appData.dart';
@@ -19,6 +18,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late AppData _appData;
+  int selectedCategory = 0;
+  void getSelectedValueFromChild(selectedValue) {
+    setState(
+      () {
+        selectedCategory = selectedValue;
+      },
+    );
+    // ignore: avoid_print
+    print(selectedCategory);
+  }
 
   @override
   void initState() {
@@ -46,51 +55,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget buildAppBar(BuildContext context) {
     return Row(
-      // mainAxisAlignment:MainAxisAlignment.spaceBetween,
-      // backgroundColor: Colors.white,
-      // elevation: 0,
-      // leading: IconButton(
-      //   icon: SvgPicture.asset("assets/icons/back.svg"),
-      //   onPressed: () {},
-      // ),
       children: <Widget>[
         IconButton(
           icon: SvgPicture.asset(
             "assets/icons/back.svg",
-            // by default our icon color is white
             color: kTextColor,
           ),
           onPressed: () {},
         ),
-        Spacer(),
-        Container(
-          child: Row(
-            children: [
-              IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/search.svg",
-                  // by default our icon color is white
-                  color: kTextColor,
-                ),
-                onPressed: () {},
+        const Spacer(),
+        Row(
+          children: [
+            IconButton(
+              icon: SvgPicture.asset(
+                "assets/icons/search.svg",
+                color: kTextColor,
               ),
-              IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/cart.svg",
-                  // by default our icon color is white
-                  color: kTextColor,
-                ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Cart(),
-                  ),
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: SvgPicture.asset(
+                "assets/icons/cart.svg",
+                // by default our icon color is white
+                color: kTextColor,
+              ),
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const Cart(),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        SizedBox(width: kDefaultPaddin / 2),
+        const SizedBox(width: kDefaultPaddin / 2),
       ],
     );
   }
@@ -109,34 +107,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        Categories(),
-        // ItemCard(),
+        Categories(
+          sendDataToParent: getSelectedValueFromChild,
+        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-            child: GridView.builder(
-              itemCount: products.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: kDefaultPaddin,
-                crossAxisSpacing: kDefaultPaddin,
-                childAspectRatio: 0.70,
-              ),
-              itemBuilder: (context, index) => ItemCard(
-                product: products[index],
-                press: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProductDetails(
-                      product: products[index],
-                    ),
-                  ),
-                ),
-              ),
+            child: _buildProductsGrid(
+              context,
+              _appData.categories![selectedCategory].products!,
             ),
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildProductsGrid(BuildContext context, List<Product> productsList) {
+    return GridView.builder(
+      itemCount: productsList.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: kDefaultPaddin,
+        crossAxisSpacing: kDefaultPaddin,
+        childAspectRatio: 0.70,
+      ),
+      itemBuilder: (context, index) => ItemCard(
+        product: productsList[index],
+        press: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProductDetails(
+              product: productsList[index],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

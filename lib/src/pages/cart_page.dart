@@ -53,28 +53,28 @@ class Cart extends StatelessWidget {
               ),
             ],
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-              child: GridView.builder(
-                itemCount: products.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1,
-                  mainAxisSpacing: kDefaultPaddin,
-                  crossAxisSpacing: kDefaultPaddin,
-                  childAspectRatio: 3,
-                ),
-                itemBuilder: (context, index) {
-                  return Container(
-                    height: 120,
-                    child: ItemCard2(
-                      product: products[index],
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
+          // Expanded(
+          //   child: Padding(
+          //     padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+          //     child: GridView.builder(
+          //       itemCount: products.length,
+          //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //         crossAxisCount: 1,
+          //         mainAxisSpacing: kDefaultPaddin,
+          //         crossAxisSpacing: kDefaultPaddin,
+          //         childAspectRatio: 3,
+          //       ),
+          //       itemBuilder: (context, index) {
+          //         return Container(
+          //           height: 120,
+          //           child: ItemCard2(
+          //             // product: products[index],
+          //           ),
+          //         );
+          //       },
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
