@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late AppData _appData;
+  late Appdata _appData;
   int selectedCategory = 0;
   void getSelectedValueFromChild(selectedValue) {
     setState(
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _appData = Store.instance.getAppData();
     // ignore: avoid_print
-    print(_appData.categories![1].catgoryName);
+    print(_appData.categoryList![1].catgoryName);
   }
 
   @override
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
             child: _buildProductsGrid(
               context,
-              _appData.categories![selectedCategory].products!,
+              _appData.categoryList![selectedCategory].productList!,
             ),
           ),
         ),

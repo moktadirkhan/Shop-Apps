@@ -3,10 +3,10 @@ import 'package:shop_app/src/models/appData.dart';
 import 'package:shop_app/src/models/category_model.dart';
 
 class AppDataResponse {
-  static AppData getAppData() {
+  static Appdata getAppData() {
     List<CategoryModel> categories = CategoryResponse.getDummyCategory();
-    AppData appData = AppData(
-      categories: categories,
+    Appdata appData = Appdata(
+      categoryList: categories,
     );
 
     return appData;
