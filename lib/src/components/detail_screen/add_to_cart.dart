@@ -23,12 +23,16 @@ class AddtoCart extends StatelessWidget {
             width: 58,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
-              border: Border.all(color: product!.color!),
+              border: Border.all(
+                // color: product!.color!,
+                color: Colors.white,
+              ),
             ),
             child: IconButton(
               icon: SvgPicture.asset(
                 "assets/icons/add_to_cart.svg",
-                color: product!.color!,
+                // color: product!.color!,
+                color: Colors.white,
               ),
               onPressed: () {},
             ),
@@ -36,10 +40,12 @@ class AddtoCart extends StatelessWidget {
           Expanded(
             child: SizedBox(
               height: 50,
+              // ignore: deprecated_member_use
               child: FlatButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18)),
-                color: product!.color!,
+                // color: product!.color!,
+                color: Colors.white,
                 onPressed: () {},
                 child: Text(
                   "Buy Now".toUpperCase(),
@@ -57,5 +63,3 @@ class AddtoCart extends StatelessWidget {
     );
   }
 }
-
-

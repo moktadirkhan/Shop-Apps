@@ -22,7 +22,8 @@ class ItemCard extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(kDefaultPaddin),
               decoration: BoxDecoration(
-                color: product!.color!,
+                // color: product!.color!,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Hero(
