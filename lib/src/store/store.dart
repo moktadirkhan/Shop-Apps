@@ -1,3 +1,4 @@
+import 'package:shop_app/src/mockdata/appdata_mock_data.dart';
 import 'package:shop_app/src/mockdata/category_mock_data.dart';
 import 'package:shop_app/src/models/appData.dart';
 import 'package:shop_app/src/models/product.dart';
@@ -18,7 +19,7 @@ class Store {
   }
 
   Future<void> _loadAppData() async {
-    _appdata = AppdataResponse.getDummyAppdata();
+    _appdata = AppDataResponse.getAppData();
   }
 
   Appdata getAppData() {

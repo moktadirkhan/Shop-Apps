@@ -13,3 +13,4 @@ class CategoryModel {
     this.productList,
   });
 }
+ // www.something.com/images/category/category_image.jpg

@@ -37,6 +37,10 @@ dependencies:
   flutter_svg: ^0.20.0-nullsafety.3 #it helps us to use svg in our app
   google_fonts: ^2.1.0
   flutter_spinkit: ^5.1.0
+
+  # Hive for local db
+  hive: ^2.0.4
+  hive_flutter: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

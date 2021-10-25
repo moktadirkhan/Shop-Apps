@@ -10,15 +10,15 @@ import 'package:shop_app/src/utils/colors.dart';
 
 class ProductDetails extends StatelessWidget {
   final Product? product;
-    // final List<Product>? productList;
-
+  // final List<Product>? productList;
 
   const ProductDetails({Key? key, this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: product!.color!,
+      // backgroundColor: product!.color!,
+      backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100),
         child: SafeArea(
@@ -117,11 +117,6 @@ class ProductDetails extends StatelessWidget {
   }
 }
 
-
-
-
-
-
 class ColorDot extends StatelessWidget {
   final Color? color;
   final bool isSelected;
@@ -156,8 +151,6 @@ class ColorDot extends StatelessWidget {
     );
   }
 }
-
-
 
 class CartCounter extends StatefulWidget {
   const CartCounter({Key? key}) : super(key: key);

@@ -61,7 +61,7 @@ class Cart extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
               child: GridView.builder(
-                itemCount: products.length,
+                itemCount: 8,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
                   mainAxisSpacing: kDefaultPaddin,
@@ -69,9 +69,7 @@ class Cart extends StatelessWidget {
                   childAspectRatio: 4,
                 ),
                 itemBuilder: (context, index) {
-                  return ItemCard2(
-                    product: products[index],
-                  );
+                  return Text("some data");
                 },
               ),
             ),
