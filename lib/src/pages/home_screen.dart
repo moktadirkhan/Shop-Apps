@@ -137,14 +137,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       itemBuilder: (context, index) => ItemCard(
         product: productsList[index],
-        // press: () => Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => ProductDetails(
-        //       product: productsList[index],
-        //     ),
-        //   ),
-        // ),
         press: () => openProductPage(context, productsList[index]),
       ),
     );
