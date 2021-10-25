@@ -4,12 +4,24 @@ import 'package:shop_app/src/components/item_card.dart';
 import 'package:shop_app/src/components/cards/item_card_2.dart';
 import 'package:shop_app/src/models/product.dart';
 import 'package:shop_app/src/screen/details_screen.dart';
+import 'package:shop_app/src/store/store.dart';
 import 'package:shop_app/src/utils/colors.dart';
 
-class Cart extends StatelessWidget {
+class Cart extends StatefulWidget {
   final Product? product;
 
   const Cart({Key? key, this.product}) : super(key: key);
+
+  @override
+  State<Cart> createState() => _CartState();
+}
+
+class _CartState extends State<Cart> {
+  @override
+  void initState() {
+    super.initState();
+    Store.instance.getCartData();
+  }
 
   @override
   Widget build(BuildContext context) {
