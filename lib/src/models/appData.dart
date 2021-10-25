@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:shop_app/src/models/category_model.dart';
 
-class AppData {
-  List<CategoryModel>? categories;
-  AppData({this.categories});
+class Appdata {
+  Appdata({this.categoryList});
+  List<CategoryModel>? categoryList;
 }

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:shop_app/src/general/fade_in_route.dart';
 import 'package:shop_app/src/models/product.dart';
-import 'package:shop_app/src/pages/cart_page.dart';
-import 'package:shop_app/src/pages/details_screen.dart';
-import 'package:shop_app/src/pages/home_screen.dart';
-import 'package:shop_app/src/pages/splash_screen.dart';
+import 'package:shop_app/src/screen/cart.dart';
+import 'package:shop_app/src/screen/details_screen.dart';
+import 'package:shop_app/src/screen/home_screen.dart';
+import 'package:shop_app/src/screen/splash_screen.dart';
 
 // void openCartPage( BuildContext context ) {
 //   Navigator.of(context)
@@ -19,7 +19,7 @@ final Map<String, RouterMethod> _definitions = {
     return MaterialPageRoute(
       settings: settings,
       builder: (context) {
-        return const SplashScreen();
+        return SplashScreen();
       },
     );
   },
@@ -131,7 +131,7 @@ Route buildRouter(RouteSettings settings) {
   );
 }
 
-void openProductPage(BuildContext context, Product product) {
+void openProductPage(BuildContext context, Product? product) {
   Navigator.of(context).pushNamed('/product_details_page', arguments: product);
 }
 

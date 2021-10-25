@@ -4,12 +4,12 @@ class CategoryModel {
   int? categoryId;
   String? catgoryName;
   String? categoryImageUrl;
-  List<Product>? products;
+  List<Product>? productList;
 
   CategoryModel({
     this.categoryId,
     this.catgoryName,
     this.categoryImageUrl,
-    this.products,
+    this.productList,
   });
 }

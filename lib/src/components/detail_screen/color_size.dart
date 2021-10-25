@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/src/models/product.dart';
-import 'package:shop_app/src/pages/details_screen.dart';
+import 'package:shop_app/src/screen/details_screen.dart';
 import 'package:shop_app/src/utils/colors.dart';
 
 class ColorAndSize extends StatelessWidget {

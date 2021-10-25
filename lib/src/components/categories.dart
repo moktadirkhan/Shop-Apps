@@ -5,30 +5,22 @@ import 'package:shop_app/src/utils/colors.dart';
 //We need statefull widget for our categories
 
 class Categories extends StatefulWidget {
-  final sendDataToParent; // this is a call back function which we will use to send data to parent
-  const Categories({
-    Key? key,
-    this.sendDataToParent,
-  }) : super(key: key);
+  final sendDataToParent;
+
+  const Categories({Key? key, this.sendDataToParent}) : super(key: key);
 
   @override
   _CategoriesState createState() => _CategoriesState();
 }
 
 class _CategoriesState extends State<Categories> {
-  late AppData appData; // late initilization of appData
-  int selectedIndex = 0; // this is the selected index of the categories
-  void setSelectedIndex(int index) {
-    setState(() {
-      selectedIndex = index; // this is the set state of the selected index
-    });
-  }
-
+  List<String> categories = ["Hand bag", "Jewellery", "Footwear", "Dresses"];
+  late Appdata appData;
+  int selectedIndex = 0;
   @override
   void initState() {
     super.initState();
-    appData = Store.instance
-        .getAppData(); // loading the app data from mock data via Store
+    appData = Store.instance.getAppData();
   }
 
   @override
@@ -39,7 +31,7 @@ class _CategoriesState extends State<Categories> {
         height: 25,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: appData.categories!.length,
+          itemCount: appData.categoryList!.length,
           itemBuilder: (context, index) => buildCategory(index),
         ),
       ),
@@ -52,30 +44,30 @@ class _CategoriesState extends State<Categories> {
         setState(() {
           selectedIndex = index;
         });
-        widget.sendDataToParent(index);
+        widget.sendDataToParent(selectedIndex);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              appData.categories![index].catgoryName!,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: selectedIndex == index ? kTextColor : kTextLightColor,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                appData.categoryList![index].catgoryName!,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: selectedIndex == index ? kTextColor : kTextLightColor,
+                ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(
-                top: kDefaultPaddin / 4,
-              ),
-              height: 2,
-              width: 30,
-              color: selectedIndex == index ? Colors.black : Colors.transparent,
-            )
-          ],
-        ),
+              //for underline the categories
+              Container(
+                margin:
+                    EdgeInsets.only(top: kDefaultPaddin / 4), //top padding 5
+                height: 2,
+                width: 30,
+                color:
+                    selectedIndex == index ? Colors.black : Colors.transparent,
+              )
+            ]),
       ),
     );
   }
