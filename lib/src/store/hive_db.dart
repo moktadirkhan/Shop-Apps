@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shop_app/src/models/product.dart';
 
 class HiveDB {
-  static const HIVE_DB_NAME = "HiveDB";
+  static const HIVE_DB_NAME = "Hive_DB";
   static const CART_DATA_KEY = 'cartData';
 
   static Future<List<Product>> getCartData() async {

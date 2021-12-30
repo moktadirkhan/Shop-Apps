@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_app/router.dart';
@@ -29,83 +31,51 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedCategory = selectedValue;
       },
     );
-    print(selectedCategory);
   }
 
   @override
   void initState() {
     super.initState();
     appData = Store.instance.getAppData();
-    // ignore: avoid_print
-    // print(appData.categoryList![1].catgoryName);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100),
-        child: SafeArea(
-          child: Container(
-            height: 80,
-            child: buildAppBar(context),
-          ),
-        ),
-      ),
-      body: buildItems(context),
-    );
-  }
-
-  Widget buildAppBar(BuildContext context) {
-    // productList:appData.categoryList![selectedCategory].productList!.length;
-
-    return Row(
-      // mainAxisAlignment:MainAxisAlignment.spaceBetween,
-      // backgroundColor: Colors.white,
-      // elevation: 0,
-      // leading: IconButton(
-      //   icon: SvgPicture.asset("assets/icons/back.svg"),
-      //   onPressed: () {},
-      // ),
-      children: <Widget>[
-        IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/back.svg",
-            // by default our icon color is white
-            color: kTextColor,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
           ),
           onPressed: () {},
         ),
-        Spacer(),
-        Container(
-          child: Row(
-            children: [
-              IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/search.svg",
-                  // by default our icon color is white
-                  color: kTextColor,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/cart.svg",
-                  // by default our icon color is white
-                  color: kTextColor,
-                ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Cart(),
-                  ),
-                ),
-              ),
-            ],
+        centerTitle: true,
+        title: Text(
+          "ShopApp",
+          style: TextStyle(
+            color: Colors.black,
           ),
         ),
-        SizedBox(width: kDefaultPaddin / 2),
-      ],
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.shop,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
+      body: buildItems(context),
     );
   }
 
@@ -126,7 +96,6 @@ class _HomeScreenState extends State<HomeScreen> {
         Categories(
           sendDataToParent: getSelectedValueFromChild,
         ),
-        // ItemCard(),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),

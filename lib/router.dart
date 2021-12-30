@@ -4,7 +4,7 @@ import 'package:shop_app/src/general/fade_in_route.dart';
 import 'package:shop_app/src/models/product.dart';
 import 'package:shop_app/src/screen/cart.dart';
 import 'package:shop_app/src/screen/details_screen.dart';
-import 'package:shop_app/src/screen/home_screen.dart';
+import 'package:shop_app/src/screen/home_page.dart';
 import 'package:shop_app/src/screen/splash_screen.dart';
 
 // void openCartPage( BuildContext context ) {
