@@ -41,7 +41,7 @@ class _NavigationPageState extends State<NavigationPage> {
             activeColor: Colors.green,
             inactiveColor: Color(0xff6e80b0),
             title: Text(
-              "Feed",
+              "Home",
             ),
             icon: Icon(
               Icons.feed,
@@ -53,7 +53,7 @@ class _NavigationPageState extends State<NavigationPage> {
             ),
             activeColor: Colors.green,
             inactiveColor: Color(0xff6e80b0),
-            title: Text("Category"),
+            title: Text("Cart"),
           ),
           BottomNavyBarItem(
             icon: Icon(
@@ -62,7 +62,7 @@ class _NavigationPageState extends State<NavigationPage> {
             activeColor: Colors.green,
             inactiveColor: Color(0xff6e80b0),
             title: Text(
-              "Favorites",
+              "Search",
             ),
           ),
           BottomNavyBarItem(
