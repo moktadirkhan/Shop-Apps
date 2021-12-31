@@ -1,56 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:shop_app/src/general/fade_in_route.dart';
+import 'package:shop_app/src/models/new/merchant.dart';
 import 'package:shop_app/src/models/product.dart';
-import 'package:shop_app/src/screen/cart.dart';
-import 'package:shop_app/src/screen/details_screen.dart';
-import 'package:shop_app/src/screen/home_page.dart';
-import 'package:shop_app/src/screen/splash_screen.dart';
-
-// void openCartPage( BuildContext context ) {
-//   Navigator.of(context)
-//       .pushNamed('/cart');
-// }
 
 typedef RouterMethod = PageRoute Function(RouteSettings, Map<String, String>);
 
-final Map<String, RouterMethod> _definitions = {
-  '/': (settings, _) {
-    return MaterialPageRoute(
-      settings: settings,
-      builder: (context) {
-        return SplashScreen();
-      },
-    );
-  },
-  '/main': (settings, _) {
-    return MaterialPageRoute(
-      settings: settings,
-      builder: (context) {
-        return const HomeScreen();
-      },
-    );
-  },
-  '/product_details_page': (settings, _) {
-    return MaterialPageRoute(
-      settings: settings,
-      builder: (context) {
-        Product? product = settings.arguments as Product?;
-        return ProductDetails(
-          product: product,
-        );
-      },
-    );
-  },
-  '/cart_screen': (settings, _) {
-    return MaterialPageRoute(
-      settings: settings,
-      builder: (context) {
-        return const Cart();
-      },
-    );
-  }
-};
+final Map<String, RouterMethod> _definitions = {};
 
 /*
   The following function does: 
@@ -131,10 +86,18 @@ Route buildRouter(RouteSettings settings) {
   );
 }
 
-void openProductPage(BuildContext context, Product? product) {
+/*
+  HomePage, CartPage, SearchPage, Profile Page will be handled by the NavigationPage
+*/
+
+void openMerchantPage(BuildContext context, Merchant merchant) {
+  Navigator.of(context).pushNamed('/merchant_page', arguments: merchant);
+}
+
+void openProductDetailsPage(BuildContext context, Product product) {
   Navigator.of(context).pushNamed('/product_details_page', arguments: product);
 }
 
-void openCartPage(BuildContext context) {
-  Navigator.of(context).pushNamed('/cart_screen');
+void openEditProfilePage(BuildContext context) {
+  Navigator.of(context).pushNamed('/edit_profile_page');
 }
