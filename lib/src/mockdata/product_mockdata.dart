@@ -1,3 +1,7 @@
+import 'package:shop_app/src/models/grid_container_data.dart';
+import 'package:shop_app/src/models/grid_item.dart';
+import 'package:shop_app/src/models/list_container_data.dart';
+import 'package:shop_app/src/models/list_item.dart';
 import 'package:shop_app/src/models/product.dart';
 
 Product product1 = Product(
@@ -50,3 +54,24 @@ Product product4 = Product(
 
 List<Product> aarongList = [product1, product2];
 List<Product> bataList = [product3, product4];
+
+GridItem GridItem1 = GridItem(
+  itemType: GridItemType.HOME_PRODUCT_GRID,
+  product: product2,
+);
+GridItem GridItem2 = GridItem(
+  itemType: GridItemType.HOME_PRODUCT_GRID,
+  product: product1,
+);
+GridItem GridItem3 = GridItem(
+  itemType: GridItemType.HOME_PRODUCT_GRID,
+  product: product3,
+);
+GridItem GridItem4 = GridItem(
+  itemType: GridItemType.HOME_PRODUCT_GRID,
+  product: product4,
+);
+List<GridItem> gridOfProduct = [GridItem1, GridItem2, GridItem3, GridItem4];
+GridContainerData homePageProductGrid = GridContainerData(
+  items: gridOfProduct,
+);

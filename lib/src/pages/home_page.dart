@@ -1,9 +1,28 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:shop_app/src/components/container/grid_container.dart';
+import 'package:shop_app/src/mockdata/product_mockdata.dart';
+import 'package:shop_app/src/models/grid_container_data.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  GridContainerData? _homeFeed;
+  GridContainerData _getHomeFeed() {
+    return homePageProductGrid;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _homeFeed = _getHomeFeed();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +46,16 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      body: _buildItems(),
+    );
+  }
+
+  Widget _buildItems() {
+    return Container(
+      child: GridContainer(
+        data: _homeFeed,
+        crossAxisCount: 2,
       ),
     );
   }
