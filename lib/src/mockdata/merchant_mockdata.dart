@@ -1,5 +1,5 @@
 import 'package:shop_app/src/mockdata/category_mockdata.dart';
-import 'package:shop_app/src/models/new/merchant.dart';
+import 'package:shop_app/src/models/merchant.dart';
 
 Merchant merchant1 = Merchant(
   merchantId: "aarong",

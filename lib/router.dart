@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/src/general/fade_in_route.dart';
-import 'package:shop_app/src/models/new/merchant.dart';
+import 'package:shop_app/src/models/merchant.dart';
 import 'package:shop_app/src/models/product.dart';
 
 typedef RouterMethod = PageRoute Function(RouteSettings, Map<String, String>);

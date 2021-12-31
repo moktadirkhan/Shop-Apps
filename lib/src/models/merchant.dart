@@ -1,4 +1,4 @@
-import 'package:shop_app/src/models/new/category.dart';
+import 'package:shop_app/src/models/category.dart';
 
 class Merchant {
   String? merchantId;

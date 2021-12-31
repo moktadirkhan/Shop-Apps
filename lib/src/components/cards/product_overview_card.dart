@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/src/models/new/product.dart';
+import 'package:shop_app/src/models/product.dart';
 
 class ProductOverviewCard extends StatefulWidget {
-  Product product;
-  ProductOverviewCard({
+  final Product product;
+  const ProductOverviewCard({
     Key? key,
     required this.product,
   }) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:shop_app/src/mockdata/product_mockdata.dart';
-import 'package:shop_app/src/models/new/category.dart';
+import 'package:shop_app/src/models/category.dart';
 
 Category category1 = Category(
   categoryId: "cat1",
