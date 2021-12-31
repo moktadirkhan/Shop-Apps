@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       child: GridContainer(
         data: _homeFeed,
-        crossAxisCount: 2,
+        // crossAxisCount: 4,
       ),
     );
   }
