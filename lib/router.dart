@@ -2,10 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:shop_app/src/general/fade_in_route.dart';
 import 'package:shop_app/src/models/merchant.dart';
 import 'package:shop_app/src/models/product.dart';
+import 'package:shop_app/src/pages/splash_page.dart';
 
 typedef RouterMethod = PageRoute Function(RouteSettings, Map<String, String>);
 
-final Map<String, RouterMethod> _definitions = {};
+final Map<String, RouterMethod> _definitions = {
+  '/': (settings, _) {
+    return MaterialPageRoute(
+      settings: settings,
+      builder: (context) {
+        return SplashPage();
+      },
+    );
+  },
+};
 
 /*
   The following function does: 
